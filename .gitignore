@@ -1,2 +1,12 @@
 *.jpg
 *.jpeg
+*.pyc
+
+/migrations/*
+!migrations/__init__.py
+
+/media/
+
+000?_*.py
+
+db.sqlite3
