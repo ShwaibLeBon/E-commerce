@@ -1,4 +1,5 @@
-<!DOCTYPE html>{% load static %}
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -13,22 +14,42 @@
 </head>
 
 <body>
+    {% if messages %}
+                {% for message in messages %}
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                  <div class="alert alert-success alert-dismissible fade show text-center" id="success-alert" role="alert">
+                     {{ message }}
+                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  {% endif %}
+                  {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                    <div class="alert alert-danger alert-dismissible fade show text-center" id="danger-alert" role="alert">
+                       {{ message }}
+                       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+              {% endif %}
     <div class="container">
         <div class="navbar">
             <div class="logo">
-                <a href="{% url 'home' %}">
+                <a href="#">
                     <img src="{% static 'images/logos/5338968-download-logo-symbol-wakanda-forever-logo-full-size-png-image-wakanda-png-690_222_preview.png' %}"
                         alt="" style="width: 200px; height: auto;">
                 </a>
             </div>
             <nav>
                 <ul id="menuItems">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'products' %}">Products</a></li>
-                    <li><a href="{% url 'about' %}">About us</a></li>
-                    <li><a href="{% url 'contact' %}">Contacts</a></li>
-                    <li><a href="{% url 'account' %}">Account</a></li>
-                    <li><a href="{% url 'cart' %}">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">Account</a></li>
+                    <li><a href="#">
                             <i class="fa fa-shopping-cart"></i>
                         </a>
                     </li>
@@ -51,17 +72,21 @@
                             <span onclick="register()">Sign Up</span>
                             <hr id="Indicator">
                         </div>
-                        <form id="LoginForm" autocomplete="on">
-                            <input type="text" placeholder="Username" autocomplete="off">
-                            <input type="password" placeholder="Password" autocomplete="off">
-                            <button type="submit" class="btn">Login</button>
+                        <form id="LoginForm" autocomplete="on"  action="." method="POST">
+                            {% csrf_token %}
+                            {{connexion_form.username}}
+                            {{connexion_form.password}}
+                            <button type="submit" name="connexion" class="btn">Login</button>
                             <a href="">Forgot Password?</a>
                         </form>
-                        <form id="RegForm" autocomplete="on">
-                            <input type="text" placeholder="Username" autocomplete="off">
-                            <input type="email" placeholder="E-mail" autocomplete="off">
-                            <input type="password" placeholder="Password" autocomplete="off">
-                            <button type="submit" class="btn">Register</button>
+                        <form  action="." method="POST" id="RegForm" autocomplete="off">
+                            {% csrf_token %}
+                                {{registrer_form.username}}
+                                {{registrer_form.email}}
+                                {{registrer_form.phone_number}}
+                                {{registrer_form.password}}
+
+                            <button name="enregistrer" type="submit" class="btn">Register</button>
                         </form>
                     </div>
                 </div>
@@ -85,7 +110,7 @@
                     </div>
                 </div>
                 <div class="footer-col-2">
-                    <a href="{% url 'home' %}">
+                    <a href="#">
                         <img src="{% static 'images/logos/5338968-download-logo-symbol-wakanda-forever-logo-full-size-png-image-wakanda-png-690_222_preview.png' %}"
                             alt="">
                     </a>
