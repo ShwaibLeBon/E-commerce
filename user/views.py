@@ -5,7 +5,7 @@ from .models import *
 from django.contrib.auth import login,logout,authenticate
 # Create your views here.
 def home(request):
-	return render(request,'user/redirect.html',locals())
+	return render(request,'user/dashboard.html',locals())
 def profile(request):
 	registrer_form = ProfileForm(request.POST or None)
 	connexion_form = ConnexionForm(request.POST or None)

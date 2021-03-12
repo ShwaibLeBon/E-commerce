@@ -34,6 +34,9 @@
                     {% endif %}
                 {% endfor %}
               {% endif %}
+{% block nav %}
+    
+
     <div class="container">
         <div class="navbar">
             <div class="logo">
@@ -53,11 +56,20 @@
                             <i class="fa fa-shopping-cart"></i>
                         </a>
                     </li>
+                    {% if user.is_authenticated %}
+                        
+                    <li><a href="#">Deconnexion</a></li>
+                    {% endif %}
                 </ul>
                 <img src="{% static 'images/logos/menu-512.png' %}" class="menu" alt="" onclick="menuToggle()">
             </nav>
         </div>
     </div>
+
+{% endblock nav %}
+
+{% block content %}
+    
 
     <div class="account-page">
         <div class="container">
@@ -93,6 +105,12 @@
             </div>
         </div>
     </div>
+
+{% endblock content %}
+
+{% block footer %}
+        
+
 
     <div class="footer">
         <div class="container">
@@ -140,6 +158,8 @@
             <p class="copyright">Copyright &copy; 2020 - www.wakanda.com</p>
         </div>
     </div>
+
+{% endblock footer %}
 
 
 
