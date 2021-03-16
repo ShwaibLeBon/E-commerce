@@ -1,0 +1,44 @@
+{% extends "user/account.html" %}
+
+{% load static %}
+
+
+{% block content %}
+<div class="small-container">
+    <div class="row row-2">
+        <h2>All Products</h2>
+        <select>
+            <option>Default sorting</option>
+            <option>Price Low to High</option>
+            <option>Price High to Low</option>
+            <option></option>
+            <option></option>
+        </select>
+    </div>
+    <div class="row">
+        {% for amaproduit in products  %}
+        <div class="col-4">
+            <img src="{{ amaproduit.photo1.url }}"alt="">
+            
+            <h4><a href="{% url "productdetail" amaproduit.id %}">{{ amaproduit.nom }}</a></h4>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+            <p>{{ amaproduit.prix }}</p>
+        </div>  
+        {% endfor %}    
+    </div>
+    <div class="page-btn">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>&#8594;</span>
+    </div>
+</div>
+{% endblock content %}

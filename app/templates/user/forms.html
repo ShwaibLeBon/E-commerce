@@ -1,0 +1,33 @@
+{% extends "user/account.html" %}
+
+{% load static %}
+
+
+{% block content %}
+
+{% if product_form %}
+<form method="post" action="." class="form-signin"enctype="multipart/form-data">
+
+    {% csrf_token %}
+    {{ product_form.as_p }}
+    <button type="submit" class="btn btn-success">AjouterProduit</button>
+
+
+</form>
+    
+{% endif %}
+
+{% if mark_form %}
+<form method="post" action="." class="form-signin"enctype="multipart/form-data">
+
+    {% csrf_token %}
+    {{ mark_form.as_p }}
+    <button type="submit" class="btn btn-success">Ajoutermark</button>
+
+
+</form>
+    
+{% endif %}
+
+
+{% endblock content %}

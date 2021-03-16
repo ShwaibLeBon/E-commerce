@@ -1,0 +1,41 @@
+{% extends 'user/account.html' %}
+
+{% block content %}
+<div class="small-container">
+    <div class="row row-2">
+        <h2>All Products</h2>
+        <select>
+            <option>Default sorting</option>
+            <option>Price Low to High</option>
+            <option>Price High to Low</option>
+            <option></option>
+            <option></option>
+        </select>
+    </div>
+    <div class="row">
+        {% for items in productz %}
+        <div class="col-4">
+            <img src="{{items.image1.url}}" alt="">
+            <h4>{{items.name}}</h4>
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <p>{{items.price}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="page-btn">
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+        <span>5</span>
+        <span>&#8594;</span>
+    </div>
+</div>
+{% endblock content %}
+    
