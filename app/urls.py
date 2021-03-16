@@ -7,4 +7,9 @@ urlpatterns = [
     path('deconnexion/',deconnexion,name='deconnexion'),
     path('product/<int:id>/',productDetail,name='productdetail'),
     path('add-product/',createProduct,name='createproduct'),
+    path('products/',allProduct,name='allproduct'),
+
+
+    path('add-mark/',createMark,name='createmark'),
+
 ]

@@ -51,17 +51,37 @@ def registrer(request):
 def deconnexion(request):
 	logout(request)
 	return redirect(profile)
+
+	
+def allProduct(request):
+	products = Product.objects.all()
+	return render(request,"product.html",locals())
+
 def productDetail(request,id):
+	product = Product.objects.get(id=id)
 	return render(request,"productdetails.html",locals())
+
 def createProduct(request):
 	product_form = ProductForm (request.POST or None ,request.FILES)
 	if product_form.is_valid():
 		product_obj = product_form.save(commit = False)
 		product_obj.owner = request.user
 		product_obj.save()
-		messages.success(request,"produit ajoute avec success")
+		messages.success(request,"product added with success")
 		return redirect(home)
 	else :
-		messages.error(request,"erreur d'ajout")
+		messages.error(request,"error while adding")
 		product_form = ProductForm()
+	return render(request,"user/forms.html",locals())
+
+
+def createMark(request):
+	mark_form = MarkForm (request.POST or None ,request.FILES)
+	if mark_form.is_valid():
+		mark_form.save()
+		messages.success(request,"mark added with success")
+		return redirect(home)
+	else :
+		messages.error(request,"error while adding")
+		mark_form = MarkForm()
 	return render(request,"user/forms.html",locals())
