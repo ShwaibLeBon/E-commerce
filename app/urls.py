@@ -1,14 +1,12 @@
-# from app.views import HomeView, ProductDetailView, ProductView
-# from django.urls import path, include
-# from . import views
-# from user import views as user_views
+from django.urls import path
+from .views import *
 
-# urlpatterns = [
-#     path('', views.HomeView, name='home'),
-#     path('products/', ProductView.as_view(), name='products'),
-#     path('product_details/<product_name>/', ProductDetailView.as_view(), name='Product_detail'),
-#     path('cart/', views.CartView, name='cart'),
-#     path('about/', views.AboutView, name='about'),
-#     path('contact/', views.ContactView, name='contact'),
-#     path('account/', user_views.AccountView, name='account')
-# ]
+urlpatterns = [
+    path('',profile,name='profile'),
+    path('home/',home,name='home'),
+    path('allproduct/',products,name='products'),
+    path('addmark/',marque,name='marque'),
+    path('product/<int:id>/',productDetail,name='productDetail'),
+    path('addproduct/',createProduct,name='createProuct'),
+    path('deconnexion/',deconnexion,name='deconnexion'),
+]
