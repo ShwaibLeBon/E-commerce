@@ -1,4 +1,4 @@
-{% extends 'app/base.html' %}
+{% extends 'base.html' %}
 
 {% block content %}
 <div class="small-container">
@@ -13,9 +13,11 @@
         </select>
     </div>
     <div class="row">
+        {% for x in products %}
+
         <div class="col-4">
-            <img src="../images/products/DSC_9352.JPG" alt="">
-            <h4>The CrewZ</h4>
+            <img src="{{x.image1.url}}" alt="">
+            <h4>{{x.name}}</h4>
             <div class="rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -24,181 +26,7 @@
                 <i class="fas fa-star"></i>
             </div>
         </div>
-        <div class="col-4">
-            <img src="../images/products/DSC_9353.JPG" alt="">
-            <h4>The CrewZ</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-        </div>
-        <div class="col-4">
-            <img src="../images/products/DSC_9354.JPG" alt="">
-            <h4>The CrewZ</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-        </div>
-        <div class="col-4">
-            <img src="../images/products/DSC_9355.JPG" alt="">
-            <h4>The CrewZ</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
-        </div>
-        <div class="col-4">
-            <img src="../images/products/adidas superstars or-hjj-2.jpg" alt="">
-            <h4>Adidas Superstar</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>130,000 BIF</p>
-        </div>
-        <div class="col-4">
-            <img src="../images/products/Chaussure_Superstar_Blanc_FV3284_03_standard.jpg" alt="">
-            <h4>Adidas Superstar</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>130,000 BIF</p>
-        </div>
-        <div class="col-4">
-            <img src="../images/products/adidas_superstar_4.jpg" alt="">
-            <h4>Adidas Superstar</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>130,000 BIF</p>
-        </div>
-        <div class="col-4">
-            <img src="../images/products/adidas-superstar-5.jpg" alt="">
-            <h4>Adidas Superstar</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>130,000 BIF</p>
-        </div>
-        <div class="col-4">
-            <img src="../images/products/nike-adapt-2-huarache-ct4092-300.jpg" alt="">
-            <h4>Nike Adapt</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-        </div>
-        <div class="col-4">
-            <img src="../images/products/nike-adapt-bb-1-tie-dye-basketball-shoe-vdFwKS.jpg" alt="">
-            <h4>Nike Adapt Tie Dye Basketball</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-        </div>
-        <div class="col-4">
-            <img src="../images/products/DSC_9356.JPG" alt="">
-            <h4>The CrewZ</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>1,000,000 BIF</p>
-        </div>
-        <div class="col-4">
-            <img src="../images/products/DSC_9357.JPG" alt="">
-            <h4>The CrewZ</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>1,000,000 BIF</p>
-        </div>
-        <div class="col-4">
-            <img src="../images/products/DSC_9358.JPG" alt="">
-            <h4>The CrewZ</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>1,000,000 BIF</p>
-        </div>
-        <div class="col-4">
-            <img src="../images/products/DSC_9359.JPG" alt="">
-            <h4>The CrewZ</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>1,000,000 BIF</p>
-        </div>
-        <div class="col-4">
-            <img src="../images/products/DSC_9360.JPG" alt="">
-            <h4>The CrewZ</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>1,000,000 BIF</p>
-        </div>
-        <div class="col-4">
-            <img src="../images/products/DSC_9361.JPG" alt="">
-            <h4>The CrewZ</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="far fa-star"></i>
-            </div>
-            <p>1,000,000 BIF</p>
-        </div>
+        {% endfor %}
     </div>
     <div class="page-btn">
         <span>1</span>
