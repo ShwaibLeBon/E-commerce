@@ -52,6 +52,7 @@ def deconnexion(request):
 	logout(request)
 	return redirect(profile)
 def productDetail(request,id):
+	product = Product.objects.get(id=id)
 	return render(request,"productdetails.html",locals())
 def createProduct(request):
 	product_form = ProductForm (request.POST or None ,request.FILES)
@@ -65,3 +66,18 @@ def createProduct(request):
 		messages.error(request,"erreur d'ajout")
 		product_form = ProductForm()
 	return render(request,"user/forms.html",locals())
+
+
+def createMark(request):
+	mark_form = MarkForm(request.POST ,request.FILES)
+	if mark_form.is_valid():
+		mark_form.save()
+		messages.success(request, "mark ajoute avec success")
+		return redirect(home)
+	mark_form = MarkForm()
+	return render(request,"user/forms.html",locals())
+
+def products(request):
+	all_product = Product.objects.all()
+	return render(request,"product.html",locals())
+	

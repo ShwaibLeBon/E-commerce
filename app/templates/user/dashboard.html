@@ -19,8 +19,8 @@
         {% for x in products  %}
 
             <div class="col-4">
-            <img src="{{ x.photo1.url }}" alt="">
-            <h4><a href="{% url "productdetail" x.id %}">{{ x.nom }}</h4>
+            <img src="{{ x.image1.url }}" alt="">
+            <h4><a href="{% url "productdetail" x.id %}">{{ x.name }}</h4>
             <div class="rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -28,7 +28,7 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
-            <p>{{ x.prix }}</p>
+            <p>{{ x.price }}</p>
         </div>
         {% endfor %}
         

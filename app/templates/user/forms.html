@@ -14,4 +14,14 @@
         </form>
         
     {% endif %}
+
+     {% if mark_form %}
+
+        <form method="POST" action="." enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ mark_form.as_p }}
+            <button type="submit" class="btn btn-primary">Ajouter marque</button>
+        </form>
+        
+    {% endif %}
 {% endblock content %}

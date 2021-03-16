@@ -42,11 +42,11 @@ class ConnexionForm(forms.Form):
 
 class ProductForm(forms.ModelForm):
 
-	nom = forms.CharField(
+	name = forms.CharField(
 		label='',
 		widget=forms.TextInput(
 			attrs={
-				'placeholder':'nom',
+				'placeholder':'name',
 				'class':'form-control'
 			
 
@@ -55,11 +55,12 @@ class ProductForm(forms.ModelForm):
 
 			))
 
-	marque = forms.CharField(
+	mark = forms.ModelChoiceField(
 		label='',
-		widget=forms.TextInput(
+		queryset = Mark.objects.all(),
+		widget=forms.Select(
 			attrs={
-				'placeholder':'marque',
+				'placeholder':'mark',
 				'class':'form-control'
 			
 
@@ -68,11 +69,11 @@ class ProductForm(forms.ModelForm):
 
 			))
 
-	prix = forms.IntegerField(
+	price = forms.IntegerField(
 		label='',
 		widget=forms.NumberInput(
 			attrs={
-				'placeholder':'prix',
+				'placeholder':'price',
 				'class':'form-control'
 			
 
@@ -81,55 +82,41 @@ class ProductForm(forms.ModelForm):
 
 			))
 
-	posted_date = forms.DateField(
-		label='',
-		widget=forms.DateInput(
-			attrs={
-				'placeholder':'date',
-				'class':'form-control',
-				'type':'date'
-			
-
-
-				}
-
-			))
-
-	photo1=forms.FileField(
+	image1=forms.FileField(
      label='',
      widget = forms.FileInput(
          attrs={
          'class':'form-control-file',
-         'placeholder':'photo1'
+         'placeholder':'image1'
          }
      ))
 
 
-	photo2=forms.FileField(
+	image2=forms.FileField(
      label='',
      widget = forms.FileInput(
          attrs={
          'class':'form-control-file',
-         'placeholder':'photo2'
+         'placeholder':'image2'
          }
      ))
 
 
-	photo3=forms.FileField(
+	image3=forms.FileField(
      label='',
      widget = forms.FileInput(
          attrs={
          'class':'form-control-file',
-         'placeholder':'photo3'
+         'placeholder':'image3'
          }
      ))
 
-	photo4=forms.FileField(
+	image4=forms.FileField(
      label='',
      widget = forms.FileInput(
          attrs={
          'class':'form-control-file',
-         'placeholder':'photo4'
+         'placeholder':'image4'
          }
      ))
 
@@ -149,4 +136,34 @@ class ProductForm(forms.ModelForm):
 
 	class Meta:
 		model = Product
-		exclude = ['owner']
+		exclude = ['owner','date']
+
+
+class MarkForm(forms.ModelForm):
+	name = forms.CharField(
+			label='name',
+			widget=forms.TextInput(
+				attrs={
+					'placeholder':'name'
+				}
+
+			)
+
+		)
+
+	logo = forms.ImageField(
+			label='logo',
+			widget=forms.FileInput(
+				attrs={
+					'placeholder':'logo'
+				}
+
+			)
+
+		)
+
+	class Meta:
+		model = Mark
+		fields ='__all__'
+
+

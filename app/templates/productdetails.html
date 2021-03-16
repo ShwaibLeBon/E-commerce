@@ -4,28 +4,28 @@
 <div class="small-container single-product">
     <div class="row">
         <div class="col-2">
-            <img src=" {% static "images/products/Adidas_Superstar_Shoes_White_FV3284_01_standard.jpg" %}" id="productImg">
+            <img src=" {{ product.image1.url }}" id="productImg">
             <div class="small-img-row">
                 <div class="small-img-col">
-                    <img src=" {% static "images/products/Adidas_Superstar_Shoes_White_FV3284_01_standard.jpg" %}"
+                    <img src="{{ product.image1.url }} "
                         class="small-img" width="100%">
                 </div>
                 <div class="small-img-col">
-                    <img src=" {% static "images/products/adidas superstars or-hjj-2.jpg" %}" class="small-img" width="100%">
+                    <img src=" {{ product.image2.url }}" class="small-img" width="100%">
                 </div>
                 <div class="small-img-col">
-                    <img src=" {% static "images/products/Chaussure_Superstar_Blanc_FV3284_03_standard.jpg" %}" class="small-img"
+                    <img src=" {{ product.image3.url }}" class="small-img"
                         width="100%">
                 </div>
                 <div class="small-img-col">
-                    <img src=" {% static "images/products/adidas_superstar_4.jpg" %}" class="small-img" width="100%">
+                    <img src=" {{ product.image4.url }}" class="small-img" width="100%">
                 </div>
             </div>
         </div>
         <div class="col-2">
-            <p>Home / Shoes</p>
-            <h1>Adidas Superstar White</h1>
-            <h4>130,000 BIF</h4>
+            <p>Home /{{product.mark.name}}</p>
+            <h1>{{ product.name }}</h1>
+            <h4>{{ product.price}}</h4>
             <select>
                 <option>Select Size</option>
                 <option>XXL</option>
@@ -38,9 +38,7 @@
             <a href="" class="btn">Add to cart</a>
             <h3>Product Details <i class="fa fa-indent"></i></h3>
             <br>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non eum ad deserunt harum sequi placeat!
-                Reprehenderit, officia totam voluptatibus exercitationem nam aliquid ullam iusto deleniti! Quo
-                placeat dicta qui quasi?</p>
+            <p>{{ product.description}}</p>
         </div>
     </div>
     <div class="small-container">
