@@ -5,6 +5,7 @@
 
 {% block content %}
 
+<<<<<<< HEAD
 {% if product_form %}
 <form method="post" action="." class="form-signin"enctype="multipart/form-data">
 
@@ -30,4 +31,15 @@
 {% endif %}
 
 
+=======
+    {% if product_form %}
+
+        <form method="POST" action="." enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ product_form.as_p }}
+            <button type="submit" class="btn btn-primary">Ajouter produit</button>
+        </form>
+        
+    {% endif %}
+>>>>>>> origin/master
 {% endblock content %}

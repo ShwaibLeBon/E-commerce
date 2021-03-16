@@ -16,11 +16,19 @@
         </select>
     </div>
     <div class="row">
+<<<<<<< HEAD
         {% for amaproduit in products  %}
         <div class="col-4">
             <img src="{{ amaproduit.photo1.url }}"alt="">
             
             <h4><a href="{% url "productdetail" amaproduit.id %}">{{ amaproduit.nom }}</a></h4>
+=======
+        {% for x in products  %}
+
+            <div class="col-4">
+            <img src="{{ x.photo1.url }}" alt="">
+            <h4><a href="{% url "productdetail" x.id %}">{{ x.nom }}</h4>
+>>>>>>> origin/master
             <div class="rating">
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
@@ -28,9 +36,17 @@
                 <i class="fas fa-star"></i>
                 <i class="fas fa-star"></i>
             </div>
+<<<<<<< HEAD
             <p>{{ amaproduit.prix }}</p>
         </div>  
         {% endfor %}    
+=======
+            <p>{{ x.prix }}</p>
+        </div>
+        {% endfor %}
+        
+        
+>>>>>>> origin/master
     </div>
     <div class="page-btn">
         <span>1</span>

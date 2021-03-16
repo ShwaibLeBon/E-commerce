@@ -1,5 +1,9 @@
 from django import forms
+<<<<<<< HEAD
 from .models import*
+=======
+from .models import* 
+>>>>>>> origin/master
 
 
 class ProfileForm(forms.Form):
@@ -40,6 +44,7 @@ class ConnexionForm(forms.Form):
 		'placeholder':'password',
 		}))
 
+<<<<<<< HEAD
 class ProductForms(forms.ModelForm):
 
 	name = forms.CharField(
@@ -47,6 +52,15 @@ class ProductForms(forms.ModelForm):
 		widget=forms.TextInput(
 			attrs={
 				'placeholder':'Nom',
+=======
+class ProductForm(forms.ModelForm):
+
+	nom = forms.CharField(
+		label='',
+		widget=forms.TextInput(
+			attrs={
+				'placeholder':'nom',
+>>>>>>> origin/master
 				'class':'form-control'
 			
 
@@ -55,6 +69,7 @@ class ProductForms(forms.ModelForm):
 
 			))
 
+<<<<<<< HEAD
 	mark = forms.ModelChoiceField(
 		label = '',
 		queryset = Mark.objects.all(),
@@ -63,11 +78,22 @@ class ProductForms(forms.ModelForm):
 				
 				'class' : 'form-control',
 				'placeholder':''
+=======
+	marque = forms.CharField(
+		label='',
+		widget=forms.TextInput(
+			attrs={
+				'placeholder':'marque',
+				'class':'form-control'
+			
+
+>>>>>>> origin/master
 
 				}
 
 			))
 
+<<<<<<< HEAD
 	price = forms.IntegerField(
  		label='Prix',
  		widget=forms.NumberInput(
@@ -132,13 +158,83 @@ class ProductForms(forms.ModelForm):
              'placeholder':''
              }
          ))
+=======
+	prix = forms.IntegerField(
+		label='',
+		widget=forms.NumberInput(
+			attrs={
+				'placeholder':'prix',
+				'class':'form-control'
+			
+
+
+				}
+
+			))
+
+	posted_date = forms.DateField(
+		label='',
+		widget=forms.DateInput(
+			attrs={
+				'placeholder':'date',
+				'class':'form-control',
+				'type':'date'
+			
+
+
+				}
+
+			))
+
+	photo1=forms.FileField(
+     label='',
+     widget = forms.FileInput(
+         attrs={
+         'class':'form-control-file',
+         'placeholder':'photo1'
+         }
+     ))
+
+
+	photo2=forms.FileField(
+     label='',
+     widget = forms.FileInput(
+         attrs={
+         'class':'form-control-file',
+         'placeholder':'photo2'
+         }
+     ))
+
+
+	photo3=forms.FileField(
+     label='',
+     widget = forms.FileInput(
+         attrs={
+         'class':'form-control-file',
+         'placeholder':'photo3'
+         }
+     ))
+
+	photo4=forms.FileField(
+     label='',
+     widget = forms.FileInput(
+         attrs={
+         'class':'form-control-file',
+         'placeholder':'photo4'
+         }
+     ))
+>>>>>>> origin/master
 
 
 	description = forms.CharField(
 		label='',
 		widget=forms.TextInput(
 			attrs={
+<<<<<<< HEAD
 				'placeholder':'',
+=======
+				'placeholder':'description',
+>>>>>>> origin/master
 				'class':'form-control'
 			
 
@@ -149,6 +245,7 @@ class ProductForms(forms.ModelForm):
 
 	class Meta:
 		model = Product
+<<<<<<< HEAD
 		exclude = ['owner']
 
 class MarkForms(forms.ModelForm):
@@ -205,3 +302,6 @@ class MarkForms(forms.ModelForm):
 
 
 
+=======
+		exclude = ['owner']
+>>>>>>> origin/master
