@@ -5,9 +5,15 @@ from .models import *
 from django.contrib.auth import login,logout,authenticate
 # Create your views here.
 def home(request):
+	try:
+		cart = Cart.objects.filter(user=request.user,paid=False).count()
+	except Exception as e:
+		raise e
+
 	products = 	Product.objects.all()
 	return render(request,'user/dashboard.html',locals())
 def profile(request):
+	cart = Cart.objects.filter(user=request.user,paid=False).count()
 	registrer_form = ProfileForm(request.POST or None)
 	connexion_form = ConnexionForm(request.POST or None)
 	if "enregistrer" in request.POST:
@@ -53,6 +59,12 @@ def deconnexion(request):
 	return redirect(profile)
 def productDetail(request,id):
 	product = Product.objects.get(id=id)
+	add_to_cart = Add_cartForm(request.POST or None)
+	if add_to_cart.is_valid():
+		quantity = add_to_cart.cleaned_data['quantity']
+		amount = float(product.price)*float(quantity)
+		Cart(user=request.user,product=product,quantity=quantity,amount=amount).save()
+	
 	return render(request,"productdetails.html",locals())
 def createProduct(request):
 	product_form = ProductForm (request.POST or None ,request.FILES)
@@ -80,4 +92,8 @@ def createMark(request):
 def products(request):
 	all_product = Product.objects.all()
 	return render(request,"product.html",locals())
-	
+
+def cart(request):
+	carts = Cart.objects.filter(user=request.user,paid=False)
+	return render(request,"cart.html",locals())
+
