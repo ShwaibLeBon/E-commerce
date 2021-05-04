@@ -1,4 +1,4 @@
-{% extends 'user/account.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
 <div class="small-container single-product">
@@ -41,7 +41,7 @@
             <input type="submit" class="btn" name="Add to cart">
             </form>
             {% else %}
-                <a href="{% url 'profil'%}" class="btn">connexion</a>
+                <a href="{% url 'account'%}" class="btn">connexion</a>
             {% endif %}
             <h3>Product Details <i class="fa fa-indent"></i></h3>
             <br>
