@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+ 
+    {% block content %}
+
+     <div class="account-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <img src="{% static 'images/logos/preview.png' %}" alt="" width="425px">
+                </div>
+                <div class="col-2">
+                    <div class="form-container">
+                        <div class="form-btn">
+                            <span onclick="login()">Login</span>
+                            <span onclick="register()">Sign Up</span>
+                            <hr id="Indicator">
+                        </div>
+                        <form id="LoginForm" autocomplete="on"  action="." method="POST">
+                            {% csrf_token %}
+                            {{connexion_form.username}}
+                            {{connexion_form.password}}
+                            <button type="submit" name="connexion" class="btn">Login</button>
+                            <a href="">Forgot Password?</a>
+                        </form>
+                        <form  action="." method="POST" id="RegForm" autocomplete="off">
+                            {% csrf_token %}
+                                {{registrer_form.username}}
+                                {{registrer_form.email}}
+                                {{registrer_form.phone_number}}
+                                {{registrer_form.password}}
+
+                            <button name="enregistrer" type="submit" class="btn">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+    {% endblock content %}
