@@ -34,13 +34,22 @@ class Mark(models.Model):
 	def __str__(self):
 	 	return f"{self.name}"
 
-class Contact(models.Model):
-	telephone = models.CharField(max_length=30)
-	email = models.EmailField()
+#class Contact(models.Model):
+	#telephone = models.CharField(max_length=30)
+	#email = models.EmailField()
 
+	#def __str__(self):
+		#return f"telephone : {self.telephone} email : {self.email}"
+
+class Cart(models.Model):
+	user = models.ForeignKey(User, related_name="acheteur", on_delete=models.CASCADE)
+	product = models.ForeignKey(Product, on_delete=models.CASCADE)
+	quantity = models.PositiveIntegerField()
+	amount = models.FloatField()
+	global_amount = models.FloatField(null=True, blank=True)
+	paid = models.BooleanField(default=False)
 	def __str__(self):
-		return f"telephone : {self.telephone} email : {self.email}"
-
-
+		return f"{self.user.username} a achete {self.product.name} {self.quantity} pour {self.amount}"
+		
 
 
