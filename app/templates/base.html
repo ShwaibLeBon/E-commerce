@@ -10,6 +10,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="{% static 'images/logos/20201222_152234.png' %}" type="image/x-icon">
     <title>Wakanda | E-commerce Website</title>
+    <style type="text/css">
+
+        .nm{
+            border-radius: 50%;
+            width:36px;
+            height: 36px;
+            padding: 8px;
+
+            background-color: red;
+            border:2px solid #666;
+            color: white;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -25,10 +39,14 @@
                 <ul id="menuItems">
                     <li><a href="{% url 'home' %}">Home</a></li>
                     <li><a href="{% url 'products' %}">Products</a></li>
-                    <li><a href="{% url 'about' %}">About us</a></li>
-                    <li><a href="{% url 'contact' %}">Contacts</a></li>
-                    <li><a href="{% url 'account' %}">Account</a></li>
-                    <li><a href="{% url 'cart' %}">
+                    <li><a href="#">About us</a></li>
+                    <li><a href="#">Contacts</a></li>
+                    <li><a href="#">Account</a></li>
+                    <li>
+                        <div class="nm" >
+                            {{cart}}
+                        </div>
+                        <a href="{% url 'cart' %}">
                             <i class="fa fa-shopping-cart"></i>
                         </a>
                     </li>

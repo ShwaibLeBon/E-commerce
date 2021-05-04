@@ -50,9 +50,13 @@
                     <li><a href="{% url "home" %}">Home</a></li>
                     <li><a href="{% url "products" %}">Products</a></li>
                     <li><a href="#">About us</a></li>
-                    <li><a href="{% url "Contacts" %}">Contacts</a></li>
+                    <li><a href="#">Contacts</a></li>
                     <li><a href="#">Account</a></li>
-                    <li><a href="#">
+                    <li>
+                        <div class="nm" >
+                            {{cart}}
+                        </div>
+                        <a href="{% url 'cart' %}">
                             <i class="fa fa-shopping-cart"></i>
                         </a>
                     </li>
