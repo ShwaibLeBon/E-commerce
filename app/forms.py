@@ -167,3 +167,14 @@ class MarkForm(forms.ModelForm):
 		fields ='__all__'
 
 
+class Add_cartForm(forms.Form):
+	quantity=forms.CharField(
+		label='Quantity',
+		widget=forms.NumberInput(
+				attrs={
+					"value":1
+				}
+			)
+		)
+	
+		
