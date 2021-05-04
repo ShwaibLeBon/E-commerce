@@ -1,4 +1,4 @@
-{% extends 'user/account.html' %}
+{% extends "base.html" %}
 
 {% block content %}
 <div class="small-container">
@@ -13,19 +13,20 @@
         </select>
     </div>
     <div class="row">
-        {% for item in all_product  %}
-            
+        {% for item in products  %}            
             <div class="col-4">
-            <img src="{{item.image1.url }}" alt="">
-            <h4>{{ item.name }}</h4>
-            <div class="rating">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-            </div>
+                <a href="{% url 'productdetail' item.id %}">
+                    <img src="{{item.image1.url }}" alt="">
+                    <h4>{{ item.name }}</h4>
+                    <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
             <p>{{ item.price}}</p>
+            </a>
         </div>
         {% endfor %}
         

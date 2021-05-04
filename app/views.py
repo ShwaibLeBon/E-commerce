@@ -8,12 +8,11 @@ def home(request):
 	try:
 		cart = Cart.objects.filter(user=request.user,paid=False).count()
 	except Exception as e:
-		raise e
+		print
 
 	products = 	Product.objects.all()
-	return render(request,'user/dashboard.html',locals())
-def profile(request):
-	cart = Cart.objects.filter(user=request.user,paid=False).count()
+	return render(request,'product.html',locals())
+def account(request):
 	registrer_form = ProfileForm(request.POST or None)
 	connexion_form = ConnexionForm(request.POST or None)
 	if "enregistrer" in request.POST:
@@ -29,8 +28,12 @@ def profile(request):
 				profile = Profile(user=user,phone_number=phone_number)
 				profile.email = email
 				profile.save()
-				messages.success(request, "enregistrer avec succes")
-				return redirect(home)
+
+				user = authenticate(username = username,password=password)
+				if user:
+					login(request,user)
+					messages.success(request,"vous etes connecte")
+					return redirect(home)
 			except Exception as e:
 				messages.error(request,"NOM DEJA PRIS")
 				registrer_form = ProfileForm()
@@ -48,15 +51,11 @@ def profile(request):
 
 			except Exception as e:
 				messages.error(request,"vous n etes pas connecte")
-			
-	return render(request, 'user/account.html',locals())
+	return render(request,"login_logout.html",locals())
 
-def registrer(request):
-	
-	return(request,'user/account.html',locals())
 def deconnexion(request):
 	logout(request)
-	return redirect(profile)
+	return redirect(home)
 def productDetail(request,id):
 	product = Product.objects.get(id=id)
 	add_to_cart = Add_cartForm(request.POST or None)
