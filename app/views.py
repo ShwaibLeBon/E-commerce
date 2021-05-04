@@ -67,6 +67,7 @@ def productDetail(request,id):
 		quantity = add_to_cart.cleaned_data['quantity']
 		amount = float(product.price)*float(quantity)
 		Cart(user=request.user,product=product,quantity=quantity,amount=amount).save()
+		return redirect(cart)
 	
 	return render(request,"productdetails.html",locals())
 
