@@ -18,14 +18,12 @@
                             <hr id="Indicator">
                         </div>
                         <form id="LoginForm" autocomplete="on"  action="." method="POST">
-                            {% csrf_token %}
-                            {{connexion_form.username}}
+                            {{connexion_form.username}
                             {{connexion_form.password}}
                             <button type="submit" name="connexion" class="btn">Login</button>
                             <a href="">Forgot Password?</a>
                         </form>
                         <form  action="." method="POST" id="RegForm" autocomplete="off">
-                            {% csrf_token %}
                                 {{registrer_form.username}}
                                 {{registrer_form.email}}
                                 {{registrer_form.phone_number}}
@@ -38,6 +36,3 @@
             </div>
         </div>
     </div>
-
-        
-    {% endblock content %}
